@@ -14,8 +14,3 @@ pipeline:
     tags:
       - latest
       - ${DRONE_TAG=${DRONE_COMMIT}}
-
-  notify-slack:
-    image: plugins/slack
-    webhook: https://hooks.slack.com/services/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
-    channel: deployments
