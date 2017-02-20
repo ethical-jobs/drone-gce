@@ -1,0 +1,19 @@
+{
+  "name": "drone-gce-deploy",
+  "version": "1.0.0",
+  "description": "Deply kubernetes artefacts with Drone CI",
+  "main": "index.js",
+  "repository": "https://bitbucket.org/ethical-jobs/drone-gce-deploy.git",
+  "author": "andrewmclagan <andrew@ethicaljobs.com.au>",
+  "license": "MIT",
+  "scripts": {
+    "test": "jest",
+    "test-watch": "jest --watch"
+  },
+  "dependencies": {
+    "dot": "^1.1.1",
+    "jest": "^18.1.0",
+    "js-base64": "^2.1.9",
+    "shelljs": "^0.7.6"
+  }
+}

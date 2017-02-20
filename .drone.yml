@@ -1,0 +1,21 @@
+pipeline:
+
+  test:
+    image: node:6-slim
+    commands:
+      - npm install
+      - npm run test
+
+  publish:
+    image: plugins/docker
+    repo: ethicaljobs/drone-gce-deploy
+    username: ${DOCKER_USERNAME}
+    password: ${DOCKER_PASSWORD}
+    tags:
+      - latest
+      - ${DRONE_TAG=${DRONE_COMMIT}}
+
+  notify-slack:
+    image: plugins/slack
+    webhook: https://hooks.slack.com/services/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
+    channel: deployments
