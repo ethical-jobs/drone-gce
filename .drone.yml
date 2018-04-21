@@ -1,10 +1,10 @@
 pipeline:
 
   test:
-    image: node:6-slim
+    image: node:alpine
     commands:
-      - npm install
-      - npm run test
+      - yarn install
+      - yarn run test
 
   publish:
     image: plugins/docker
