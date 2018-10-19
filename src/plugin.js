@@ -27,6 +27,7 @@ function authorizeServiceAccount(pathToKey, serviceAccountEmail, projectName) {
       --key-file ${pathToKey} \
       --project ${projectName}
   `;
+  shell.echo(cmd);
   return shell.exec(cmd).code == 0;
 }
 
@@ -41,6 +42,7 @@ function setCluster(cluster, zone) {
   const cmd = `
     gcloud container clusters get-credentials ${cluster} --zone ${zone}
   `;
+  shell.echo(cmd);
   return shell.exec(cmd).code == 0;
 }
 
@@ -56,6 +58,7 @@ function applyArtefact(pathToArtefact, namespace = '') {
   const cmd = `
     kubectl apply -f ${pathToArtefact} --record ${namespaceArg}
   `;
+  shell.echo(cmd);
   return shell.exec(cmd).code == 0;
 }
 

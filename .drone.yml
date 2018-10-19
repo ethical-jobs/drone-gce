@@ -19,4 +19,3 @@ pipeline:
         'latest',
         '${DRONE_TAG=${DRONE_COMMIT}}'
     ]
-
