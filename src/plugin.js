@@ -13,6 +13,16 @@ function decodeServiceKey(key) {
 }
 
 /**
+ * Displays versions of cli tools
+ *
+ * @return void
+ */
+function versions() {
+  shell.echo(`gcloud --version`);
+  shell.echo(`kubectl --version`);
+}
+
+/**
  * Authorises service account with gcloud cli
  *
  * @param string pathToKey

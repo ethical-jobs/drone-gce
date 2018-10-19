@@ -1,10 +1,8 @@
-# 0.2.0
+# 0.3.1
 
 - Echoing shell commands
-
-# 0.2.0
-
 - Adding support for kubernetes namespaces
+- Echoing out cli tool versions
 
 # 0.1.2
 
