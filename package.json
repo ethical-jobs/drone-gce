@@ -1,6 +1,6 @@
 {
   "name": "drone-gce-deploy",
-  "version": "1.0.0",
+  "version": "0.2.0",
   "description": "Deply kubernetes artefacts with Drone CI",
   "main": "index.js",
   "repository": "https://bitbucket.org/ethical-jobs/drone-gce-deploy.git",

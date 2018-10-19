@@ -48,11 +48,13 @@ function setCluster(cluster, zone) {
  * Executes a kubernetes template file on the cluster
  *
  * @param string pathToArtefact
+ * @param string namespace
  * @return Bool
  */
-function applyArtefact(pathToArtefact) {
+function applyArtefact(pathToArtefact, namespace = '') {
+  const namespaceArg = namespace ? `--namespace=${namespace}` : '';
   const cmd = `
-    kubectl apply -f ${pathToArtefact} --record
+    kubectl apply -f ${pathToArtefact} --record ${namespaceArg}
   `;
   return shell.exec(cmd).code == 0;
 }

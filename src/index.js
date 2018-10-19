@@ -12,6 +12,8 @@ const serviceKey = plugin.decodeServiceKey(process.env.GCE_KEY);
 
 const artefacts = process.env.PLUGIN_ARTEFACTS.split(',');
 
+const namespace = process.env.PLUGIN_NAMESPACE || '';
+
 // Authorise and set cluster
 
 plugin.writeFile('./service-account-key.json', JSON.stringify(serviceKey));
@@ -25,5 +27,5 @@ plugin.setCluster(params.plugin.cluster, params.plugin.zone);
 artefacts.forEach(function (artefact) {
   const templateString = template.processTemplate(artefact, params);
   plugin.writeFile(artefact, templateString);
-  plugin.applyArtefact(artefact);
+  plugin.applyArtefact(artefact, namespace);
 });

@@ -1,3 +1,7 @@
+# 0.2.0
+
+- Adding support for kubernetes namespaces
+
 # 0.1.2
 
 - using yarn as apckage manager now docker/node supports it
