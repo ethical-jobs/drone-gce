@@ -1,5 +1,9 @@
 # 0.2.0
 
+- Echoing shell commands
+
+# 0.2.0
+
 - Adding support for kubernetes namespaces
 
 # 0.1.2
