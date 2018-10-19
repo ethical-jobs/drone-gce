@@ -6,6 +6,8 @@ if (! process.env.GCE_KEY) {
   process.exit(1);
 }
 
+plugin.versions();
+
 const params = template.getTemplateParams(process.env);
 
 const serviceKey = plugin.decodeServiceKey(process.env.GCE_KEY);

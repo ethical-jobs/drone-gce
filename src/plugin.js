@@ -91,6 +91,7 @@ function writeFile(pathToFile, fileString) {
 }
 
 module.exports = {
+  versions: versions,
   decodeServiceKey: decodeServiceKey,
   writeFile: writeFile,
   authorizeServiceAccount: authorizeServiceAccount,
