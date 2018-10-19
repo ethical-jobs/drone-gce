@@ -1,5 +1,6 @@
-# 0.3.1
+# 0.4.0
 
+- Shell command exit codes, forces exit of process
 - Echoing shell commands
 - Adding support for kubernetes namespaces
 - Echoing out cli tool versions
