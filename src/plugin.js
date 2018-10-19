@@ -31,8 +31,8 @@ function execute(cmd) {
  * @return void
  */
 function versions() {
-  shell.echo(`gcloud --version`);
-  shell.echo(`kubectl --version`);
+  shell.cmd(`gcloud --version`);
+  shell.cmd(`kubectl --version`);
 }
 
 /**
