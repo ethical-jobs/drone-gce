@@ -14,4 +14,6 @@ pipeline:
     tags:
       - latest
       - ${DRONE_TAG=${DRONE_COMMIT}}
+    when:
+      event: tag
 
