@@ -13,6 +13,19 @@ function decodeServiceKey(key) {
 }
 
 /**
+ * Execute a command
+ *
+ * @param string cmd
+ * @return void
+ */
+function execute(cmd) {
+  shell.echo(cmd);
+  if (shell.exec(cmd).code !== 0) {
+    shell.exit(1);
+  }
+}
+
+/**
  * Displays versions of cli tools
  *
  * @return void
@@ -31,14 +44,12 @@ function versions() {
  * @return Bool
  */
 function authorizeServiceAccount(pathToKey, serviceAccountEmail, projectName) {
-  const cmd = `
+  execute(`
     gcloud auth activate-service-account \
       ${serviceAccountEmail} \
       --key-file ${pathToKey} \
       --project ${projectName}
-  `;
-  shell.echo(cmd);
-  return shell.exec(cmd).code == 0;
+  `);
 }
 
 /**
@@ -49,11 +60,9 @@ function authorizeServiceAccount(pathToKey, serviceAccountEmail, projectName) {
  * @return Bool
  */
 function setCluster(cluster, zone) {
-  const cmd = `
+  execute(`
     gcloud container clusters get-credentials ${cluster} --zone ${zone}
-  `;
-  shell.echo(cmd);
-  return shell.exec(cmd).code == 0;
+  `);
 }
 
 /**
@@ -65,11 +74,9 @@ function setCluster(cluster, zone) {
  */
 function applyArtefact(pathToArtefact, namespace = '') {
   const namespaceArg = namespace ? `--namespace=${namespace}` : '';
-  const cmd = `
+  execute(`
     kubectl apply -f ${pathToArtefact} --record ${namespaceArg}
-  `;
-  shell.echo(cmd);
-  return shell.exec(cmd).code == 0;
+  `);
 }
 
 /**
