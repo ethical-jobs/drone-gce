@@ -1,3 +1,7 @@
+# 0.5.0
+
+- Upgrading to node version 8-slim
+
 # 0.4.3
 
 - Removing CLOUDSDK_CONTAINER_USE_CLIENT_CERTIFICATE env var
