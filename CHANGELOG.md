@@ -1,3 +1,7 @@
+# 0.4.3
+
+- Removing CLOUDSDK_CONTAINER_USE_CLIENT_CERTIFICATE env var
+
 # 0.4.0
 
 - Shell command exit codes, forces exit of process
