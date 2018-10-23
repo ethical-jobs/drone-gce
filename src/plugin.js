@@ -32,7 +32,6 @@ function execute(cmd) {
  */
 function versions() {
   shell.exec(`gcloud --version`);
-  shell.exec(`kubectl --version`);
 }
 
 /**
@@ -72,6 +71,21 @@ function setCluster(cluster, zone) {
  * @param string namespace
  * @return Bool
  */
+function echoArtefact(pathToArtefact) {
+  shell.echo('---------------------------------');
+  shell.echo('---------------------------------');
+  shell.exec(`cat ${pathToArtefact}`);
+  shell.echo('---------------------------------');
+  shell.echo('---------------------------------');
+}
+
+/**
+ * Executes a kubernetes template file on the cluster
+ *
+ * @param string pathToArtefact
+ * @param string namespace
+ * @return Bool
+ */
 function applyArtefact(pathToArtefact, namespace = '') {
   const namespaceArg = namespace ? `--namespace=${namespace}` : '';
   execute(`
@@ -96,5 +110,6 @@ module.exports = {
   writeFile: writeFile,
   authorizeServiceAccount: authorizeServiceAccount,
   setCluster: setCluster,
+  echoArtefact: echoArtefact,
   applyArtefact: applyArtefact,
 };
