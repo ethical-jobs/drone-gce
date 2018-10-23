@@ -29,5 +29,6 @@ plugin.setCluster(params.plugin.cluster, params.plugin.zone);
 artefacts.forEach(function (artefact) {
   const templateString = template.processTemplate(artefact, params);
   plugin.writeFile(artefact, templateString);
+  plugin.echoArtefact(artefact);
   plugin.applyArtefact(artefact, namespace);
 });
