@@ -44,9 +44,7 @@ VOLUME ["/root/.config"]
 #--------------------------------------------------------------------------
 #
 
-RUN gcloud components update kubectl && \
-    # Basic check it works.
-    kubectl version
+RUN gcloud components update kubectl
 
 #
 #--------------------------------------------------------------------------
