@@ -8,6 +8,8 @@ ENV CLOUD_SDK_VERSION=$CLOUD_SDK_VERSION
 
 ENV PATH /google-cloud-sdk/bin:$PATH
 
+ENV CLOUDSDK_CONTAINER_USE_CLIENT_CERTIFICATE False
+
 #
 #--------------------------------------------------------------------------
 # Install gcloud sdk
@@ -56,6 +58,6 @@ ADD . /var/drone-gce-plugin
 
 WORKDIR /var/drone-gce-plugin
 
-RUN npm install
+RUN yarn
 
 CMD node /var/drone-gce-plugin/src/index.js
