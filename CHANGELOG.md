@@ -1,3 +1,7 @@
+# 0.6.0
+
+- Echoing k8s artefacts before applying
+
 # 0.5.0
 
 - Upgrading to node version 8-slim
