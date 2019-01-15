@@ -1,3 +1,8 @@
+# 1.0.0
+
+- Pulling key from plugin secret or env var
+- Updaing for drone v1.0.0
+
 # 0.6.0
 
 - Echoing k8s artefacts before applying
