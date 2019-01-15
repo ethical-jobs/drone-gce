@@ -1,3 +1,7 @@
+# 1.1.0
+
+- Bump cloud SDK to version 229.0.0
+
 # 1.0.0
 
 - Pulling key from plugin secret or env var
