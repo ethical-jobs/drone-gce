@@ -1,16 +1,18 @@
 const plugin = require('./plugin');
 const template = require('./template');
 
-if (! process.env.GCE_KEY) {
-  console.log('Invalid key file, please provide a base64 encoded key file in the GCE_KEY environment variable.')
+const serviceKeyString = process.env.GCE_KEY || process.env.PLUGIN_GCE_KEY || null;
+
+if (! serviceKeyString) {
+  console.log('Invalid key file, please provide a base64 encoded key file in the GCE_KEY environment variable or drone secret.')
   process.exit(1);
 }
 
 plugin.versions();
 
-const params = template.getTemplateParams(process.env);
+const serviceKey = plugin.decodeServiceKey(serviceKeyString);
 
-const serviceKey = plugin.decodeServiceKey(process.env.GCE_KEY);
+const params = template.getTemplateParams(process.env);
 
 const artefacts = process.env.PLUGIN_ARTEFACTS.split(',');
 
