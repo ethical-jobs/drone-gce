@@ -1,21 +1,27 @@
-pipeline:
+kind: pipeline
+name: default
+steps:
 
-  test:
+  - name: dependancies
     image: node:alpine
     commands:
       - yarn install
+
+  - name: test
+    image: node:alpine
+    commands:
       - yarn run test
 
-  publish:
+  - name: publish
     image: plugins/docker
-    repo: ethicaljobs/drone-gce-deploy
-    when:
-      event: tag
-    secrets: [
-        docker_username,
-        docker_password
-    ]
-    tags: [
-        'latest',
-        '${DRONE_TAG=${DRONE_COMMIT}}'
-    ]
+    # environment:
+    #   HOME: "/tmp"
+    settings:
+      repo: ethicaljobs/drone-gce-deploy
+      username:
+        from_secret: DOCKER_USERNAME
+      password:
+        from_secret: DOCKER_PASSWORD
+      tags:
+        - latest
+        - '${DRONE_TAG=${DRONE_COMMIT=latest}}'

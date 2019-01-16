@@ -36,8 +36,6 @@ RUN apk --no-cache add \
     # Basic check it works.
     gcloud --version
 
-VOLUME ["/root/.config"]
-
 #
 #--------------------------------------------------------------------------
 # Install kubectl
