@@ -14,8 +14,8 @@ steps:
 
   - name: publish
     image: plugins/docker
-    environment:
-      HOME: "/tmp"
+    # environment:
+    #   HOME: "/tmp"
     settings:
       repo: ethicaljobs/drone-gce-deploy
       username:
